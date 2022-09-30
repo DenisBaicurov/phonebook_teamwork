@@ -89,20 +89,25 @@ def get_phone_number(input_string: str) -> str:
     '''
     Проверка строки с номером телефона на числа и длинну номера
     '''
-
+    
     while True:
         try:
             num = input(input_string)
             if len(num) < 12:
-                if len(num) != 0:
-                    num = int(num)
+                if len(num) != 0 and int (num)>=0:
+                    num = int(num) 
+
                     return str(num)
                 elif len(num) == 0:
-                    print('Это поле должно быть заполнено')  
+                    print('Это поле должно быть заполнено') 
+                elif int(num) <0:
+                    print('Число не должно быть отрицательным')               
             else: 
                 print('вы ввели слишком много символов')
         except ValueError:
             print('Это не то ...')
+    
+         
 
 
 def get_comment(input_string: str) -> str:
